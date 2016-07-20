@@ -142,7 +142,8 @@ public class EntityMerger implements MultiSinkRunnableSource {
 					entityContainer1 = nextOrNull(postbox1);
 				}
 
-				/*scl
+				/*scl begin
+				  fix for https://github.com/mapsforge/mapsforge/issues/606#issuecomment-233585425
 				// Only post a bound downstream if both upstream sources had a bound.
 				// (Otherwise there's either nothing to post or the posted bound is going
 				// to be smaller than the actual data, which is bad)
@@ -157,6 +158,7 @@ public class EntityMerger implements MultiSinkRunnableSource {
 				    sink.process(new BoundContainer(bound0)); //scl
 				else if (bound1 != null)
 				    sink.process(new BoundContainer(bound1)); //scl
+				//scl end
 
 			}
 			
